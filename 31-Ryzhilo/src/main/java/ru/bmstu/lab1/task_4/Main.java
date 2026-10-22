@@ -21,8 +21,7 @@ public class Main {
      * через пробел в одной строке. Если таких элементов нет, печатается пустая строка.
      */
     static void solve(Scanner input, PrintStream output) {
-        //выделение памяти под массив, ввод x
-        int n = input.nextInt(); //метод nextInt() необходим для считывания целых чисел типа int из потока
+        int n = input.nextInt();
         int[] numbers = new int[n];
 
         for (int i = 0; i < n; i++) {
