@@ -21,8 +21,7 @@ public class Main {
      * кратного k, или -1, если такого элемента нет.
      */
     static void solve(Scanner input, PrintStream output) {
-        //выделение памяти под массив, ввод k
-        int n = input.nextInt(); //метод nextInt() необходим для считывания целых чисел типа int из потока
+        int n = input.nextInt();
         int[] numbers = new int[n];
 
         for (int i = 0; i < n; i++) {
