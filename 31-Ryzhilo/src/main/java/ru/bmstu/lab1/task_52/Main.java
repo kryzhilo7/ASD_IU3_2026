@@ -32,7 +32,6 @@ public class Main {
         printArray(output, minimums);
     }
 
-
     /** Выводит элементы массива через пробел. */
     private static void printArray(PrintStream output, int[] values) {
         for (int i = 0; i < values.length; i++) {
