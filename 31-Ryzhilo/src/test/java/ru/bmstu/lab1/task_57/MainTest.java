@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Test;
 class MainTest {
 
     @Test
-    void shouldHandleRectangle() {
+    void shouldHandleRectangularMatrix() {
         assertEquals("1 2 3 6 5 4\n", run("2 3\n1 2 3\n4 5 6\n"));
     }
 
@@ -22,23 +22,23 @@ class MainTest {
     }
 
     @Test
-    void shouldHandleNegativeOrDiagonal() {
+    void shouldHandleNegativeValues() {
         assertEquals("-3 -2 -4 -1\n", run("2 2\n-3 -2\n-1 -4\n"));
     }
 
     @Test
-    void shouldHandleEqualOrConnected() {
+    void shouldHandleEqualValues() {
         assertEquals("7 7 7 7\n", run("2 2\n7 7\n7 7\n"));
     }
 
     @Test
-    void shouldHandleLimitsOrEmpty() {
+    void shouldHandleIntegerLimits() {
         assertEquals("2147483647 -2147483648 -2147483648 2147483647\n",
                 run("2 2\n2147483647 -2147483648\n2147483647 -2147483648\n"));
     }
 
     @Test
-    void shouldHandleColumn() {
+    void shouldHandleSingleColumn() {
         assertEquals("1 2 3\n", run("3 1\n1\n2\n3\n"));
     }
 
@@ -55,7 +55,7 @@ class MainTest {
     private static String run(String inputText) {
         ByteArrayOutputStream buffer = new ByteArrayOutputStream();
         try (Scanner input = new Scanner(inputText);
-             PrintStream output = new PrintStream(buffer, true, StandardCharsets.UTF_8)) {
+                PrintStream output = new PrintStream(buffer, true, StandardCharsets.UTF_8)) {
             Main.solve(input, output);
         }
         return buffer.toString(StandardCharsets.UTF_8).replace("\r\n", "\n");
