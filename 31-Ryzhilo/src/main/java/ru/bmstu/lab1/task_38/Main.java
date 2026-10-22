@@ -26,7 +26,6 @@ public class Main {
         printArray(output, values);
     }
 
-
     /** Выводит массив одной строкой. */
     private static void printArray(PrintStream output, int[] values) {
         printPrefix(output, values, values.length);
