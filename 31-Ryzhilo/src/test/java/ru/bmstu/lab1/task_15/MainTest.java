@@ -44,10 +44,9 @@ class MainTest {
     private static String run(String inputText) {
         ByteArrayOutputStream buffer = new ByteArrayOutputStream();
         try (Scanner input = new Scanner(inputText);
-             PrintStream output = new PrintStream(buffer, true, StandardCharsets.UTF_8)) {
+                PrintStream output = new PrintStream(buffer, true, StandardCharsets.UTF_8)) {
             Main.solve(input, output);
         }
         return buffer.toString(StandardCharsets.UTF_8).replace("\r\n", "\n");
     }
 }
-
