@@ -20,8 +20,7 @@ public class Main {
      * Читает n и массив из n чисел, затем печатает количество элементов, строго больших среднего.
      */
     static void solve(Scanner input, PrintStream output) {
-        //выделение памяти под массив
-        int n = input.nextInt(); //метод nextInt() необходим для считывания целых чисел типа int из потока
+        int n = input.nextInt();
         int[] numbers = new int[n];
 
         //сумма хранится в long: при n < 10^5 сумма значений типа int может выйти за пределы int
