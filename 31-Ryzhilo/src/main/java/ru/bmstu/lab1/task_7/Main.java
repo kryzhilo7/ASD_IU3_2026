@@ -20,16 +20,14 @@ public class Main {
      * Читает n и массив из n различных чисел, затем печатает второй по величине элемент.
      */
     static void solve(Scanner input, PrintStream output) {
-        //выделение памяти под массив
-        int n = input.nextInt(); //метод nextInt() необходим для считывания целых чисел типа int из потока
+        int n = input.nextInt();
         int[] numbers = new int[n];
 
         for (int i = 0; i < n; i++) {
             numbers[i] = input.nextInt();
         }
 
-        //начальные значения берём из первых двух элементов, а не Integer.MIN_VALUE:
-        //так результат верен и тогда, когда в массиве сам элемент Integer.MIN_VALUE
+        // Первые два различных элемента дают начальные значения обоих максимумов.
         int max = Math.max(numbers[0], numbers[1]);
         int secondMax = Math.min(numbers[0], numbers[1]);
 
