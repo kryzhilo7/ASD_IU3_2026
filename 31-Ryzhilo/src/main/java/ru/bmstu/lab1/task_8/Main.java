@@ -21,8 +21,7 @@ public class Main {
      * во второй - отрицательные (через пробел). Если элементов нет, печатается пустая строка.
      */
     static void solve(Scanner input, PrintStream output) {
-        //выделение памяти под массив
-        int n = input.nextInt(); //метод nextInt() необходим для считывания целых чисел типа int из потока
+        int n = input.nextInt();
         int[] numbers = new int[n];
         int positiveCount = 0;
         int negativeCount = 0;
