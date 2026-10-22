@@ -20,8 +20,7 @@ public class Main {
      * Читает n и массив из n чисел, затем печатает YES, если массив неубывающий, и NO иначе.
      */
     static void solve(Scanner input, PrintStream output) {
-        //выделение памяти под массив
-        int n = input.nextInt(); //метод nextInt() необходим для считывания целых чисел типа int из потока
+        int n = input.nextInt();
         int[] numbers = new int[n];
 
         for (int i = 0; i < n; i++) {
