@@ -29,6 +29,4 @@ public class Main {
         output.println(best);
     }
 
-
-
 }
