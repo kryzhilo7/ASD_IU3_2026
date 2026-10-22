@@ -12,32 +12,32 @@ import org.junit.jupiter.api.Test;
 class MainTest {
 
     @Test
-    void shouldHandleRectangle() {
+    void shouldCountSeparateComponents() {
         assertEquals("2\n", run("2 3\n1 0 1\n1 0 1\n"));
     }
 
     @Test
-    void shouldHandleSingleCell() {
+    void shouldCountZeroForSingleWaterCell() {
         assertEquals("0\n", run("1 1\n0\n"));
     }
 
     @Test
-    void shouldHandleNegativeOrDiagonal() {
+    void shouldKeepDiagonalCellsSeparate() {
         assertEquals("2\n", run("2 2\n1 0\n0 1\n"));
     }
 
     @Test
-    void shouldHandleEqualOrConnected() {
+    void shouldCountConnectedLandAsOneIsland() {
         assertEquals("1\n", run("2 2\n1 1\n1 1\n"));
     }
 
     @Test
-    void shouldHandleLimitsOrEmpty() {
+    void shouldCountZeroForAllWater() {
         assertEquals("0\n", run("2 2\n0 0\n0 0\n"));
     }
 
     @Test
-    void shouldHandleColumn() {
+    void shouldCountSeparateIslandsInColumn() {
         assertEquals("2\n", run("3 1\n1\n0\n1\n"));
     }
 
@@ -63,7 +63,7 @@ class MainTest {
     private static String run(String inputText) {
         ByteArrayOutputStream buffer = new ByteArrayOutputStream();
         try (Scanner input = new Scanner(inputText);
-             PrintStream output = new PrintStream(buffer, true, StandardCharsets.UTF_8)) {
+                PrintStream output = new PrintStream(buffer, true, StandardCharsets.UTF_8)) {
             Main.solve(input, output);
         }
         return buffer.toString(StandardCharsets.UTF_8).replace("\r\n", "\n");
