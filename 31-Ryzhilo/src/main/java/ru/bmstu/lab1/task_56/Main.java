@@ -40,7 +40,6 @@ public class Main {
         }
     }
 
-
     /** Читает матрицу заданного размера по строкам. */
     private static int[][] readMatrix(Scanner input, int rows, int columns) {
         int[][] matrix = new int[rows][columns];

@@ -12,33 +12,33 @@ import org.junit.jupiter.api.Test;
 class MainTest {
 
     @Test
-    void shouldHandleRectangle() {
+    void shouldMultiplyRectangularMatrices() {
         assertEquals("-4\n-13\n", run("2 3 1\n1 2 3\n4 5 6\n-2\n-1\n0\n"));
     }
 
     @Test
-    void shouldHandleSingleCell() {
+    void shouldMultiplyOneRowByTwoColumns() {
         assertEquals("-18 -9\n", run("1 1 2\n9\n-2 -1\n"));
     }
 
     @Test
-    void shouldHandleNegativeOrDiagonal() {
+    void shouldMultiplyNegativeValues() {
         assertEquals("8 3 -2\n6 1 -4\n", run("2 2 3\n-3 -2\n-1 -4\n-2 -1 0\n-1 0 1\n"));
     }
 
     @Test
-    void shouldHandleEqualOrConnected() {
+    void shouldMultiplyRepeatedValues() {
         assertEquals("-21\n-21\n", run("2 2 1\n7 7\n7 7\n-2\n-1\n"));
     }
 
     @Test
-    void shouldHandleLimitsOrEmpty() {
+    void shouldHandleIntegerLimits() {
         assertEquals("-2147483646 -2147483647\n-2147483646 -2147483647\n",
                 run("2 2 2\n2147483647 -2147483648\n2147483647 -2147483648\n-2 -1\n-1 0\n"));
     }
 
     @Test
-    void shouldHandleColumn() {
+    void shouldMultiplyColumnByRow() {
         assertEquals("-2 -1 0\n-4 -2 0\n-6 -3 0\n", run("3 1 3\n1\n2\n3\n-2 -1 0\n"));
     }
 
@@ -61,7 +61,7 @@ class MainTest {
     private static String run(String inputText) {
         ByteArrayOutputStream buffer = new ByteArrayOutputStream();
         try (Scanner input = new Scanner(inputText);
-             PrintStream output = new PrintStream(buffer, true, StandardCharsets.UTF_8)) {
+                PrintStream output = new PrintStream(buffer, true, StandardCharsets.UTF_8)) {
             Main.solve(input, output);
         }
         return buffer.toString(StandardCharsets.UTF_8).replace("\r\n", "\n");
