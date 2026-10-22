@@ -29,7 +29,6 @@ public class Main {
         output.println(product);
     }
 
-
     /** Читает заданное число элементов. */
     private static int[] readValues(Scanner input, int size) {
         int[] values = new int[size];
