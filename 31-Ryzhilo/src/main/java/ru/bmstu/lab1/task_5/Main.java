@@ -9,14 +9,13 @@ import java.util.Scanner;
  */
 public class Main {
 
+    /** Запускает решение через стандартные потоки ввода и вывода. */
     public static void main(String[] args) {
         solve(new Scanner(System.in), System.out);
     }
 
-
     static void solve(Scanner input, PrintStream output) {
-        //выделение памяти под массив
-        int n = input.nextInt(); //метод nextInt() необходим для считывания целых чисел типа int из потока
+        int n = input.nextInt();
         int[] numbers = new int[n];
 
         for (int i = 0; i < n; i++) {

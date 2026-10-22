@@ -2,12 +2,15 @@ package ru.bmstu.lab1.task_5;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
 import java.io.PrintStream;
 import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
 import org.junit.jupiter.api.Test;
 
+/** Проверки задачи 5: обычные данные и граничные случаи. */
 class MainTest {
 
     private static String run(String input) {
@@ -66,5 +69,24 @@ class MainTest {
         }
         // чётных индексов среди 0..99998 ровно 50 000
         assertEquals("50000", run(input.toString()));
+    }
+
+    @Test
+    void shouldRunMainWithStandardStreams() {
+        InputStream savedInput = System.in;
+        PrintStream savedOutput = System.out;
+        ByteArrayOutputStream buffer = new ByteArrayOutputStream();
+
+        try (PrintStream output = new PrintStream(buffer, true, StandardCharsets.UTF_8)) {
+            System.setIn(new ByteArrayInputStream("5\n1 2 3 4 5\n".getBytes(StandardCharsets.UTF_8)));
+            System.setOut(output);
+            Main.main(new String[0]);
+        } finally {
+            // Восстанавливаем потоки, чтобы этот тест не влиял на остальные.
+            System.setIn(savedInput);
+            System.setOut(savedOutput);
+        }
+
+        assertEquals("9\n", buffer.toString(StandardCharsets.UTF_8).replace("\r\n", "\n"));
     }
 }
