@@ -39,4 +39,3 @@ public class Main {
         output.println(min + " " + max);
     }
 }
-
