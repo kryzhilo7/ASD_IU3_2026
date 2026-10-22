@@ -32,6 +32,4 @@ public class Main {
         output.println(squaredDeviations / (n - 1));
     }
 
-
-
 }

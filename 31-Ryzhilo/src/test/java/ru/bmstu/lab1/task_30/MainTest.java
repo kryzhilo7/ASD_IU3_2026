@@ -2,7 +2,9 @@ package ru.bmstu.lab1.task_30;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
 import java.io.PrintStream;
 import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
@@ -63,9 +65,28 @@ class MainTest {
     private static String run(String inputText) {
         ByteArrayOutputStream buffer = new ByteArrayOutputStream();
         try (Scanner input = new Scanner(inputText);
-             PrintStream output = new PrintStream(buffer, true, StandardCharsets.UTF_8)) {
+                PrintStream output = new PrintStream(buffer, true, StandardCharsets.UTF_8)) {
             Main.solve(input, output);
         }
         return buffer.toString(StandardCharsets.UTF_8).replace("\r\n", "\n");
+    }
+
+    @Test
+    void shouldReadAndWriteThroughMain() {
+        InputStream savedInput = System.in;
+        PrintStream savedOutput = System.out;
+        ByteArrayOutputStream buffer = new ByteArrayOutputStream();
+
+        try (PrintStream output = new PrintStream(buffer, true, StandardCharsets.UTF_8)) {
+            System.setIn(new ByteArrayInputStream("5\n3 -1 2 0 3\n".getBytes(StandardCharsets.UTF_8)));
+            System.setOut(output);
+            Main.main(new String[0]);
+        } finally {
+            // Потоки возвращаются даже при ошибке, чтобы не влиять на другие тесты.
+            System.setIn(savedInput);
+            System.setOut(savedOutput);
+        }
+        double actual = Double.parseDouble(buffer.toString(StandardCharsets.UTF_8).trim());
+        assertEquals(3.3, actual, 1e-9);
     }
 }
