@@ -14,7 +14,7 @@ import java.util.Scanner;
  */
 public class Main {
 
-
+    /** Запускает решение через стандартные потоки ввода и вывода. */
     public static void main(String[] args) {
         solve(new Scanner(System.in), System.out);
     }

@@ -50,7 +50,7 @@ class MainTest {
         ByteArrayOutputStream buffer = new ByteArrayOutputStream();
 
         try (Scanner input = new Scanner(inputText);
-             PrintStream output = new PrintStream(buffer, true, StandardCharsets.UTF_8)) {
+                PrintStream output = new PrintStream(buffer, true, StandardCharsets.UTF_8)) {
             Main.solve(input, output);
         }
 
