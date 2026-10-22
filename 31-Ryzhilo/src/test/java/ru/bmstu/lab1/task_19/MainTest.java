@@ -9,6 +9,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
 import org.junit.jupiter.api.Test;
 
+/** Проверки задачи 19: обычные данные и граничные случаи. */
 class MainTest {
 
     private static String run(String input) {

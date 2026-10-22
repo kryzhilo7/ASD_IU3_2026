@@ -72,7 +72,7 @@ public class Main {
      * Читает размер массива, а затем столько же чисел.
      */
     private static int[] readArray(Scanner input) {
-        int size = input.nextInt(); //метод nextInt() необходим для считывания целых чисел типа int из потока
+        int size = input.nextInt();
         int[] numbers = new int[size];
 
         for (int i = 0; i < size; i++) {
