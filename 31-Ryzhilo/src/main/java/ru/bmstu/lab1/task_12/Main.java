@@ -25,8 +25,7 @@ public class Main {
      * Читает n, массив из n чисел и число s, затем печатает индексы искомой пары через пробел.
      */
     static void solve(Scanner input, PrintStream output) {
-        //выделение памяти под массив, ввод s
-        int n = input.nextInt(); //метод nextInt() необходим для считывания целых чисел типа int из потока
+        int n = input.nextInt();
         int[] numbers = new int[n];
 
         for (int i = 0; i < n; i++) {
