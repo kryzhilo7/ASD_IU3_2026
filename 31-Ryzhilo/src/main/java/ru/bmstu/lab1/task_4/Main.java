@@ -37,7 +37,7 @@ public class Main {
 
         for (int i = 0; i < n; i++) {
             if (numbers[i] == x) {
-                if (indices.length() > 0) {
+                if (!indices.isEmpty()) {
                     indices.append(' ');
                 }
                 indices.append(i);
