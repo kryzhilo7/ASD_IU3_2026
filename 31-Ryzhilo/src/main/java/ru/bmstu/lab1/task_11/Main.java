@@ -21,8 +21,7 @@ public class Main {
      * Читает n и массив из n чисел, затем печатает элемент, ближайший к среднему арифметическому.
      */
     static void solve(Scanner input, PrintStream output) {
-        //выделение памяти под массив
-        int n = input.nextInt(); //метод nextInt() необходим для считывания целых чисел типа int из потока
+        int n = input.nextInt();
         int[] numbers = new int[n];
 
         //сумма хранится в long: при n < 10^5 сумма значений типа int может выйти за пределы int
@@ -34,7 +33,7 @@ public class Main {
         }
 
         //Расстояние |a - sum / n| умножаем на n и получаем |a * n - sum|: сравнение идёт в целых числах,
-        //без дробного среднего и ошибок округления double. Максимум около 2^31 * 10^5 помещается в long
+        // без дробного среднего и ошибок округления. При n < 100000 расстояния помещаются в long.
         int closest = numbers[0];
         long minDistance = Math.abs((long) numbers[0] * n - sum);
 
