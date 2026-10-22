@@ -17,7 +17,7 @@ class MainTest {
     }
 
     @Test
-    void shouldHandleNegative() {
+    void shouldSortDescendingValues() {
         assertEquals("2 3 4 5\n", run("4\n5 4 3 2\n"));
     }
 
@@ -49,7 +49,7 @@ class MainTest {
     private static String run(String inputText) {
         ByteArrayOutputStream buffer = new ByteArrayOutputStream();
         try (Scanner input = new Scanner(inputText);
-             PrintStream output = new PrintStream(buffer, true, StandardCharsets.UTF_8)) {
+                PrintStream output = new PrintStream(buffer, true, StandardCharsets.UTF_8)) {
             Main.solve(input, output);
         }
         return buffer.toString(StandardCharsets.UTF_8).replace("\r\n", "\n");
