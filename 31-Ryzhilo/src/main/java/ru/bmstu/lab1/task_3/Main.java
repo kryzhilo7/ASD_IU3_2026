@@ -15,10 +15,8 @@ public class Main {
         solve(new Scanner(System.in), System.out);
     }
 
-
     static void solve(Scanner input, PrintStream output) {
-        //выделение памяти под массив, ввод x
-        int n = input.nextInt(); //метод NextInt() необходим для считывания целых числе типа int из потока
+        int n = input.nextInt();
         int[] numbers = new int[n];
 
         for (int i = 0; i < n; i++) {
